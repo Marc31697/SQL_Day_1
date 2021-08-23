@@ -1,0 +1,57 @@
+-- Question 1
+SELECT last_name, COUNT(last_name)
+FROM actor
+WHERE last_name = 'Wahlberg'
+GROUP BY last_name;
+
+-- Question 2
+SELECT amount, COUNT(amount)
+FROM payment
+WHERE amount BETWEEN 3.99 and 5.99
+GROUP BY amount;
+
+-- Question 3
+SELECT film_id, COUNT(film_id) AS Counted_Films
+FROM inventory
+GROUP BY film_id
+ORDER BY Counted_Films DESC;
+
+-- Question 4
+SELECT last_name
+FROM customer
+WHERE last_name = 'William';
+
+-- Question 5
+SELECT staff_id, count(staff_id)
+FROM rental
+GROUP BY staff_id;
+
+-- Question 6
+SELECT COUNT(DISTINCT district)
+FROM address;
+
+-- Question 7
+SELECT film_id, COUNT(film_id)
+FROM film_actor
+GROUP BY film_id
+ORDER BY count DESC;
+
+-- Question 8
+SELECT last_name, store_id
+FROM customer
+WHERE last_name LIKE '%es' and store_id = 1;
+
+-- Question 9
+select * from payment;
+
+SELECT amount, COUNT(rental_id)
+FROM payment
+WHERE payment.customer_id BETWEEN 380 AND 430
+GROUP BY amount
+HAVING COUNT(rental_id) > 250;
+
+-- Question 10
+SELECT rating, COUNT(DISTINCT rating), COUNT(rating)
+FROM film
+GROUP BY rating
+ORDER BY COUNT(rating) DESC;
